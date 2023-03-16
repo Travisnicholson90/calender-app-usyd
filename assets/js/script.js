@@ -1,123 +1,32 @@
 
+var greeting = prompt("good morning User, Please enter your name");
+
+var midday = dayjs().set('hour', 12)
+var difference = dayjs().diff(midday, 'minutes')
+if(difference >= 1) {
+  $('#greeting-message').text('Hi'.concat(' ' + greeting));
+} else {
+  $('#greeting-message').text('Good morning'.concat(' ' + greeting));
+}
+
+
 $(function () {
 
   let hourEl = $('.hour');
 
   for (let i = 0; i < hourEl.length; i++) {
+    //loop through all of the hourEl.length and set the text to the textArea
     var storedEvent = localStorage.getItem("textArea" + i);
     if (storedEvent !== null) {
       $('#hour-' + i + ' textarea').text(storedEvent);
     }
-  
+  //loop through all of the hourEl, save textarea value to a var & set to local storage
     $('#hour-' + i + ' button').on('click', function(event) {      
       var textArea = $('#hour-' + i + ' textarea').val();
       localStorage.setItem("textArea" + i, textArea);    
     });
   }
-    // get local storage to repopulate textarea inputs
-    // var storedEvent9 = localStorage.getItem("textArea9");
-    // if(storedEvent9 !== null) {
-    //   $('#hour-9 textarea').text(storedEvent9);
-    // };
-
-    // var storedEvent10 = localStorage.getItem("textArea10");
-    // if(storedEvent10 !== null) {
-    //   $('#hour-10 textarea').text(storedEvent10);
-    // }
-
-    // var storedEvent11 = localStorage.getItem("textArea11");
-    // if(storedEvent11 !== null) {
-    //   $('#hour-11 textarea').text(storedEvent11);
-    // };
-
-    // var storedEvent12 = localStorage.getItem("textArea12");
-    // if(storedEvent12 !== null) {
-    //   $('#hour-12 textarea').text(storedEvent12);
-    // };
-
-    // var storedEvent13 = localStorage.getItem("textArea13");
-    // if(storedEvent13 !== null) {
-    //   $('#hour-13 textarea').text(storedEvent13);
-    // };
-
-    // var storedEvent14 = localStorage.getItem("textArea14");
-    // if(storedEvent14 !== null) {
-    //   $('#hour-14 textarea').text(storedEvent14);
-    // };
-
-    // var storedEvent15 = localStorage.getItem("textArea15");
-    // if(storedEvent15 !== null) {
-    //   $('#hour-15 textarea').text(storedEvent15);
-    // };
-
-    // var storedEvent16 = localStorage.getItem("textArea16");
-    // if(storedEvent16 !== null) {
-    //   $('#hour-16 textarea').text(storedEvent16);
-    // };
-
-    // var storedEvent17 = localStorage.getItem("textArea17");
-    // if(storedEvent17 !== null) {
-    //   $('#hour-17 textarea').text(storedEvent17);
-    // };
-
-    // var storedEvent18 = localStorage.getItem("textArea18");
-    // if(storedEvent18 !== null) {
-    //   $('#hour-18 textarea').text(storedEvent18);
-    // };
-  
-    // // save textarea values to local storage at save button onclick
-    // $('#hour-9 button').on('click', function(event) {      
-    //     var textArea9 = $('#hour-9 textarea').val();
-    //     localStorage.setItem("textArea9", textArea9);    
-    //   });
-    
-    // $('#hour-10 button').on('click', function(event) {      
-    //     var textArea10 = $('#hour-10 textarea').val();
-    //     localStorage.setItem("textArea10", textArea10);    
-    //   });
-     
-    // $('#hour-11 button').on('click', function(event) {      
-    //   var textArea11 = $('#hour-11 textarea').val();
-    //   console.log(textArea11);
-    //   localStorage.setItem("textArea11", textArea11);    
-    // });
-  
-    // $('#hour-12 button').on('click', function(event) {      
-    //   var textArea12 = $('#hour-12 textarea').val();
-    //   localStorage.setItem("textArea12", textArea12);
-    // });
-    
-    // $('#hour-13 button').on('click', function(event) {      
-    //   var textArea13 = $('#hour-13 textarea').val();
-    //   localStorage.setItem("textArea13", textArea13);
-    // });
-  
-    // $('#hour-14 button').on('click', function(event) {      
-    //   var textArea14 = $('#hour-14 textarea').val();
-    //   localStorage.setItem("textArea14", textArea14);
-    // });
-  
-    // $('#hour-15 button').on('click', function(event) {      
-    //   var textArea15 = $('#hour-15 textarea').val();
-    //   localStorage.setItem("textArea15", textArea15);
-    // });
-  
-    // $('#hour-16 button').on('click', function(event) {      
-    //   var textArea16 = $('#hour-16 textarea').val();
-    //   localStorage.setItem("textArea16", textArea16);
-    // });
-  
-    // $('#hour-17 button').on('click', function(event) {      
-    //   var textArea17 = $('#hour-17 textarea').val();
-    //   localStorage.setItem("textArea17", textArea17);
-    // });
-  
-    // $('#hour-18 button').on('click', function(event) {      
-    //   var textArea18 = $('#hour-18 textarea').val();
-    //   localStorage.setItem("textArea18", textArea18);
-    // });
-    
-    
+       
     //display the current date in the header of the page.
     //set interval to keep time and page current
     var currentDay = dayjs().format('dddd, D MMMM  YYYY');
@@ -259,49 +168,3 @@ $(function () {
   });
   
   
-// let hourEl = $('.hour');
-
-//   for (let i = 0; i < hourEl.length; i++) {
-//     var storedEvent = localStorage.getItem("textArea" + i);
-//     if (storedEvent !== null) {
-//       $('#hour-' + i + ' textarea').text(storedEvent);
-//     }
-  
-//     $('#hour-' + i + ' button').on('click', function(event) {      
-//       var textArea = $('#hour-' + i + ' textarea').val();
-//       localStorage.setItem("textArea" + i, textArea);    
-//     });
-//   }
-  
-//   // loop through all of the hour blocks
-// let hourEl = $('.hour');
-// let btn = $('.btn');
-
-// for (let i = 0; i < hourEl.length; i++) {
-//     let textEl = $(this).find('textarea').val();
-//     textEl.text(localStorage.getItem("textEl"))
-//   };
-
-//   function save() {
-//     for (let i = 0; i < hourEl.length; i++) {
-//       $(hourEl[i]).on('click', function(event) {
-       
-//         let textEl = $(this).find('textarea').val();
-//         console.log(textEl);
-//         localStorage.setItem("textEl", textEl);
-//       });
-//     }
-//   }
-//   save()
-
-//   $('.saveBtn').on('click', (save));
-
-
-
-
-
-
-
-  // $('#hour-16 button').on('click', function(event) {      
-  //   var textArea16 = $('#hour-16 textarea').val();
-  // });
