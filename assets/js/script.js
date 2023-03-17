@@ -1,15 +1,4 @@
 
-var greeting = prompt("good morning User, Please enter your name");
-
-var midday = dayjs().set('hour', 12)
-var difference = dayjs().diff(midday, 'minutes')
-if(difference >= 1) {
-  $('#greeting-message').text('Hi'.concat(' ' + greeting));
-} else {
-  $('#greeting-message').text('Good morning'.concat(' ' + greeting));
-}
-
-
 $(function () {
 
   let hourEl = $('.hour');
